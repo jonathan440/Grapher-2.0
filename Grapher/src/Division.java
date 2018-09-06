@@ -5,6 +5,11 @@ public class Division extends NoeudBinaire{
 		super(fg,fd);
 	}
 	
+	
+	public Division() {
+		
+	}
+	
 	public String toString() {
 		return "(" + fg +  "/" +  fd + ")";
 	}
@@ -15,7 +20,12 @@ public class Division extends NoeudBinaire{
 			return getFg().execute() / getFd().execute();
 		}
 		else
-			return 0;
+			return 0;	
+	}
+	
+	
+	public void Add()
+	{
 		
 	}
 

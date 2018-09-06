@@ -6,7 +6,13 @@ public abstract class NoeudBinaire implements Noeud{
 	public NoeudBinaire(Noeud fg, Noeud fd) {
 		this.fg = fg;
 		this.fd = fd;
+		
 	}
+	
+	
+	public NoeudBinaire() {
+	}
+	
 
 	public Noeud getFg() {
 		return fg;
@@ -16,13 +22,7 @@ public abstract class NoeudBinaire implements Noeud{
 		return fd;
 	}
 
-	public void setFg(Noeud fg) {
-		this.fg = fg;
-	}
-
-	public void setFd(Noeud fd) {
-		this.fd = fd;
-	}
+	
 	
 	
 }
