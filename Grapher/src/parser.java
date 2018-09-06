@@ -1,8 +1,10 @@
 import java.util.Scanner;
 
-public class parser implements Noeud {
+public class parser{
 	
-	
+	public parser() {
+		
+	}
 	public static String lectureClavier() {
 		Scanner sc = new Scanner(System.in);
 		String line = sc.nextLine();
@@ -23,6 +25,8 @@ public class parser implements Noeud {
 			}
 			return -1;
 		}
+		
+	
 	
 	public static void parsing(String expression){
 		for(int i = 0; i < expression.length();i++) {
@@ -31,13 +35,6 @@ public class parser implements Noeud {
 				System.out.println("Racine :" + expression.charAt(i));
 				System.out.println("Fg : " + expression.charAt(i -1));
 				System.out.println("Fd : " + expression.charAt(i + 1));
-				
-				NoeudBinaire n;
-				
-				
-				
-				
-				
 				
 				
 			}
@@ -56,13 +53,12 @@ public class parser implements Noeud {
 	}
 	
 	
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		
-		
-		
+	
 		String expression = lectureClavier();
 		
 		System.out.println("Expression saisie : "+ expression);
@@ -72,11 +68,7 @@ public class parser implements Noeud {
 		
 	}
 
-	@Override
-	public double execute() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 
 
