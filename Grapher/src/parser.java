@@ -28,43 +28,67 @@ public class parser{
 		
 	
 	
-	public static void parsing(String expression){
+	public Arbre parsing(String expression){
+		Arbre res = null;
 		char operators[] = {'/', '*', '-', '+'};
 		for(char operator : operators) {
 			for(int i = 0; i < expression.length();i++) {
 				if(expression.charAt(i) == operator) {
+					String racine =  "";
+					racine += operator;
+					
+					System.out.println("Racine :  " + racine);
 					System.out.println("FG : "+ getPreviousNumber(expression, i));
 					System.out.println("FD :"+ getNextNumber(expression, i));
 					double fg = getPreviousNumber(expression, i);
 					double fd = getNextNumber(expression, i);
 					
+					
+					
+					
 					if(operator  == '/') {
+						
 						Division D = new Division(new Constant(fg), new Constant(fd));
+						
+						res = buildArbre(racine,D.fg, D.fd);
 						
 					}
 					
 					if(operator == '*') {
 						Multiplication m = new Multiplication(new Constant(fg), new Constant(fd));
+						res = buildArbre(racine,m.fg, m.fd);
 					}
 					
 					if(operator == '+') {
 						addition a = new addition(new Constant(fg),new Constant(fd));
-						System.out.println(""+ a.execute());
+						//System.out.println(""+ a.execute());
+						res = buildArbre(racine,a.fg, a.fd);
+						
+						//parsing(expression);
 									
 					}
 					
 					if(operator == '-') {
 						Soustraction s = new Soustraction(new Constant(fg), new Constant(fd));
+						res =buildArbre(racine,s.fg, s.fd);
 					}
 				}
 			}
 		}
+		return res;
 		
 	}
 	
-	public Noeud buildArbre(Noeud fg, Noeud fd) {
-		NoeudBinaire a = new NoeudBinaire(fg,fd);
-		return a;
+	public boolean isEmpty(Arbre a){
+		if(a == null) {
+			return true;
+		}
+		else return false;
+	}
+	
+	public Arbre buildArbre(String racine, Noeud fg, Noeud fd) {
+		Arbre arbre =  new Arbre(racine,fg,fd);
+		return null;
 		
 	}
 	
@@ -101,7 +125,10 @@ public class parser{
 		String expression = lectureClavier();
 		
 		System.out.println("Expression saisie : "+ expression);
-		parsing(expression);
+		parser P = new parser();
+		P.parsing(expression);
+		
+		
 		
 		
 	}

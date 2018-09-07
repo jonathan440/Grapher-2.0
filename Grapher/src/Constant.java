@@ -5,6 +5,8 @@ public class Constant implements Noeud {
 		this.value = value;
 	}
 	
+	
+	
 	@Override
 	public double execute() {
 		return value;
